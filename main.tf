@@ -3,7 +3,7 @@ resource "aws_vpc" "clc_vpc" {
   instance_tenancy = "default"
 
   tags = {
-    Name = "cicd-terraform-vpc"
+    Name = "terraform-vpc-automation"
   }
 }
 resource "aws_subnet" "public_subnet_1a" {
