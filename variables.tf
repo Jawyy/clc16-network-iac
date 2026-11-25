@@ -5,7 +5,7 @@ variable "env" {
 
 variable "vpc_name" {
     type = string
-    default = "vitor-tf"
+    default = "vitor-freitas-tf"
 }
 
 variable "pub_subnet_1a_name" {
