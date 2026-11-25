@@ -1,4 +1,5 @@
 name: Deploy Infrastructure
+
 on:
   push:
     branches:
@@ -16,11 +17,10 @@ jobs:
     name: 'Apply Changes'
     runs-on: ubuntu-latest
     environment: production
-    needs: Checkov
     defaults:
       run:
         shell: bash
-        
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +32,6 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        
+
       - name: Terraform Apply
         run: terraform apply --auto-approve
