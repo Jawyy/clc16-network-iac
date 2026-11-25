@@ -1,3 +1,20 @@
+# Correcao primeira issue
+resource "aws_flow_log" "example" {
+  log_destination      = "arn:aws:s3:::terraform-state-vfreitas-clc16-533267340601-us-east-1-an"
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.clc_vpc.id
+}
+
+# Correcao segunda issue
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.clc_vpc.id
+  
+  tags = {
+    Name = "${var.vpc_name}-default-sg"
+  }
+}
+
 resource "aws_vpc" "clc_vpc" {
   cidr_block       = "172.16.0.0/16"
   instance_tenancy = "default"
@@ -93,7 +110,7 @@ resource "aws_route_table_association" "rt_priv_association_subnet_1a" {
   route_table_id = aws_route_table.private_rt_1a.id
 }
 
-
+################
 
 ## Cria a subnet publica da zona 1c ##
 resource "aws_subnet" "public_subnet_1c" {
